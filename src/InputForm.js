@@ -41,11 +41,11 @@ class InputForm extends React.Component {
     return (
       <div className="form">
         <div className="container">
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} autoComplete="off">
             <div className="form__inner">
               <div className="form__username">
                 <label>
-                  Username:
+                  Username
                   <input
                     value={this.state.username}
                     type="text"
@@ -56,7 +56,7 @@ class InputForm extends React.Component {
               </div>
               <div className="form__password">
                 <label>
-                  Password:
+                  Password
                   <input
                     value={this.state.password}
                     type={this.state.hidden ? "password" : "text"}
@@ -64,7 +64,10 @@ class InputForm extends React.Component {
                     onChange={this.handleChange}
                   />
                   <button
-                    className="form__toggleButton"
+                    className={
+                      "form__toggleButton" +
+                      (!this.state.hidden ? "Show" : "Hidden")
+                    }
                     type="button"
                     onClick={this.toggleButton}
                   >
@@ -88,14 +91,15 @@ class InputForm extends React.Component {
                 </label>
               </div>
               <div className="form__bottom">
-                <label>
+                <label className="container__checkbox">
+                  Keep me logged in
                   <input
                     type="checkbox"
                     value={this.state.check}
                     name="checkbox"
                     onChange={this.handleCheck}
                   />
-                  Keep me logged in
+                  <span className="checkmark"></span>
                 </label>
                 <button type="submit">Log in</button>
               </div>
