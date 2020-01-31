@@ -6,7 +6,7 @@ class InputForm extends React.Component {
     username: "",
     password: "",
     selectedProduct: "",
-    check: "",
+    check: false,
     hidden: true
   };
 
@@ -40,7 +40,7 @@ class InputForm extends React.Component {
       username: "",
       password: "",
       selectedProduct: "",
-      check: "",
+      check: false,
       hidden: true
     });
   };
@@ -104,7 +104,7 @@ class InputForm extends React.Component {
                   Keep me logged in
                   <input
                     type="checkbox"
-                    value={this.state.check}
+                    checked={this.state.check}
                     name="checkbox"
                     onChange={this.handleCheck}
                   />
