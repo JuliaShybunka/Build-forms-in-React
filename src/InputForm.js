@@ -6,7 +6,8 @@ class InputForm extends React.Component {
     username: "",
     password: "",
     selectedProduct: "",
-    check: ""
+    check: "",
+    hidden: true
   };
 
   handleChange = event => {
@@ -16,6 +17,9 @@ class InputForm extends React.Component {
 
   handleCheck = event => {
     this.setState({ check: event.target.checked });
+  };
+  toggleButton = () => {
+    this.setState({ hidden: !this.state.hidden });
   };
 
   handleSubmit = event => {
@@ -55,10 +59,17 @@ class InputForm extends React.Component {
                   Password:
                   <input
                     value={this.state.password}
-                    type="password"
+                    type={this.state.hidden ? "password" : "text"}
                     name="password"
                     onChange={this.handleChange}
                   />
+                  <button
+                    className="form__toggleButton"
+                    type="button"
+                    onClick={this.toggleButton}
+                  >
+                    ?
+                  </button>
                 </label>
               </div>
               <div className="form__product">
