@@ -36,6 +36,13 @@ class InputForm extends React.Component {
         "."
     );
     event.preventDefault();
+    this.setState({
+      username: "",
+      password: "",
+      selectedProduct: "",
+      check: "",
+      hidden: true
+    });
   };
   render() {
     return (
@@ -51,6 +58,7 @@ class InputForm extends React.Component {
                     type="text"
                     name="username"
                     onChange={this.handleChange}
+                    required
                   />
                 </label>
               </div>
@@ -62,6 +70,7 @@ class InputForm extends React.Component {
                     type={this.state.hidden ? "password" : "text"}
                     name="password"
                     onChange={this.handleChange}
+                    required
                   />
                   <button
                     className={
@@ -101,7 +110,9 @@ class InputForm extends React.Component {
                   />
                   <span className="checkmark"></span>
                 </label>
-                <button type="submit">Log in</button>
+                <button className="form__bottom-btn" type="submit">
+                  Log in
+                </button>
               </div>
             </div>
           </form>

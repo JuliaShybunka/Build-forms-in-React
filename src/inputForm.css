@@ -39,6 +39,10 @@ body {
     font-size: 16px;
 }
 
+.form__username input {
+    margin-left: 27px;
+}
+
 .form__username input:hover,
 .form__password input:hover {
     transform: scale(1.1);
@@ -84,7 +88,7 @@ body {
 
 .container__checkbox {
     position: relative;
-    padding-left: 35px;
+    padding-left: 25px;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -127,4 +131,20 @@ body {
     border: solid #70a0f2;
     border-width: 0 1px 1px 0;
     transform: rotate(45deg);
+}
+
+.form__bottom-btn {
+    padding: 18px 60px;
+    background-color: #70a0f2;
+    color: #fff;
+    margin-left: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+.form__bottom {
+    margin-left: 96px;
 }
