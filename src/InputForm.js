@@ -1,4 +1,5 @@
 import React from "react";
+import "./inputForm.css";
 
 class InputForm extends React.Component {
   state = {
@@ -11,10 +12,6 @@ class InputForm extends React.Component {
   handleChange = event => {
     const name = event.target.name;
     this.setState({ [name]: event.target.value });
-  };
-
-  handleSelect = event => {
-    this.setState({ selectedProduct: event.target.value });
   };
 
   handleCheck = event => {
@@ -38,53 +35,62 @@ class InputForm extends React.Component {
   };
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Username:
-            <input
-              value={this.state.username}
-              type="text"
-              name="username"
-              onChange={this.handleChange}
-            />
-            <p>{this.state.username}</p>
-          </label>
-          <label>
-            Password:
-            <input
-              value={this.state.password}
-              type="password"
-              name="password"
-              onChange={this.handleChange}
-            />
-            <p>{this.state.password}</p>
-          </label>
-          <label>
-            Select a product
-            <select
-              name="selectedProduct"
-              value={this.state.selectedProduct}
-              onChange={this.handleSelect}
-            >
-              <option value="--">--</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-            </select>
-            <p> {this.state.selectedProduct}</p>
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              value={this.state.check}
-              name="checkbox"
-              onChange={this.handleCheck}
-            />
-            Keep me logged in
-          </label>
-
-          <button type="submit">Log in</button>
-        </form>
+      <div className="form">
+        <div className="container">
+          <form onSubmit={this.handleSubmit}>
+            <div className="form__inner">
+              <div className="form__username">
+                <label>
+                  Username:
+                  <input
+                    value={this.state.username}
+                    type="text"
+                    name="username"
+                    onChange={this.handleChange}
+                  />
+                </label>
+              </div>
+              <div className="form__password">
+                <label>
+                  Password:
+                  <input
+                    value={this.state.password}
+                    type="password"
+                    name="password"
+                    onChange={this.handleChange}
+                  />
+                </label>
+              </div>
+              <div className="form__product">
+                <label>
+                  Select a product
+                  <select
+                    name="selectedProduct"
+                    value={this.state.selectedProduct}
+                    onChange={this.handleChange}
+                    type="radio"
+                  >
+                    <option value="--">--</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                  </select>
+                </label>
+              </div>
+              <div className="form__bottom">
+                <label>
+                  <input
+                    type="checkbox"
+                    value={this.state.check}
+                    name="checkbox"
+                    onChange={this.handleCheck}
+                  />
+                  Keep me logged in
+                </label>
+                <button type="submit">Log in</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
